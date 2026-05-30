@@ -1,0 +1,649 @@
+{
+  "info": {
+    "_postman_id": "928f3624-1f46-47e0-a111-9b6eb5b0e35a",
+    "name": "runner",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29733900",
+    "_collection_link": "https://go.postman.co/collection/29733900-928f3624-1f46-47e0-a111-9b6eb5b0e35a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Add a new pet to the store Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const response = pm.response.json();\r",
+              "pm.environment.set(\"pet_id\", response.id);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "scope",
+              "value": "read:pets write:pets",
+              "type": "string"
+            },
+            {
+              "key": "authUrl",
+              "value": "https://petstore.swagger.io/oauth/authorize",
+              "type": "string"
+            },
+            {
+              "key": "grant_type",
+              "value": "implicit",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"doggie\",\n    \"photoUrls\": [\n        \"photourl1\",\n        \"photourl2\"\n    ],\n    \"id\": 3,\n    \"category\": {\n        \"id\": 11,\n        \"name\": \"categorydog\"\n    },\n    \"tags\": [\n        {\n            \"id\": 111,\n            \"name\": \"tag1\"\n        },\n        {\n            \"id\": 222,\n            \"name\": \"tag2\"\n        }\n    ],\n    \"status\": \"pending\"\n}",
+          "options": {
+            "raw": {
+              "headerFamily": "json",
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/pet",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pet"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200ok",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"photourl1\",\n    \"photourl2\"\n  ],\n  \"id\": 1,\n  \"category\": {\n    \"id\": 11,\n    \"name\": \"categorydog\"\n  },\n  \"tags\": [\n    {\n      \"id\": 111,\n      \"name\": \"tag1\"\n    },\n    {\n      \"id\": 222,\n      \"name\": \"tag2\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pet",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 200
+            },
+            {
+              "key": "date",
+              "value": "Sat, 30 May 2026 09:11:30 GMT"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "access-control-allow-methods",
+              "value": "GET, POST, DELETE, PUT"
+            },
+            {
+              "key": "access-control-allow-headers",
+              "value": "Content-Type, api_key, Authorization"
+            },
+            {
+              "key": "server",
+              "value": "Jetty(9.2.9.v20150224)"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"category\": {\n        \"id\": 11,\n        \"name\": \"categorydog\"\n    },\n    \"name\": \"doggie\",\n    \"photoUrls\": [\n        \"photourl1\",\n        \"photourl2\"\n    ],\n    \"tags\": [\n        {\n            \"id\": 111,\n            \"name\": \"tag1\"\n        },\n        {\n            \"id\": 222,\n            \"name\": \"tag2\"\n        }\n    ],\n    \"status\": \"pending\"\n}"
+        },
+        {
+          "name": "400",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"photourl1\",\n    \"photourl2\"\n  ],\n  \"id\": dsada,\n  \"category\": {\n    \"id\": 11,\n    \"name\": \"categorydog\"\n  },\n  \"tags\": [\n    {\n      \"id\": 111,\n      \"name\": \"tag1\"\n    },\n    {\n      \"id\": 222,\n      \"name\": \"tag2\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pet",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 400
+            },
+            {
+              "key": "date",
+              "value": "Sat, 30 May 2026 09:13:30 GMT"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "access-control-allow-methods",
+              "value": "GET, POST, DELETE, PUT"
+            },
+            {
+              "key": "access-control-allow-headers",
+              "value": "Content-Type, api_key, Authorization"
+            },
+            {
+              "key": "server",
+              "value": "Jetty(9.2.9.v20150224)"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"code\": 400,\n    \"type\": \"unknown\",\n    \"message\": \"bad input\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Find pet by ID Copy",
+      "request": {
+        "auth": {
+          "type": "apikey",
+          "apikey": [
+            {
+              "key": "key",
+              "value": "api_key",
+              "type": "string"
+            },
+            {
+              "key": "value",
+              "value": "{{apiKey}}",
+              "type": "string"
+            },
+            {
+              "key": "in",
+              "value": "header",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/pet/:petId",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pet",
+            ":petId"
+          ],
+          "variable": [
+            {
+              "key": "petId",
+              "value": "{{pet_id}}",
+              "description": "ID of pet to return"
+            }
+          ]
+        },
+        "description": "Returns a single pet"
+      },
+      "response": [
+        {
+          "name": "200OK",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pet/:petId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet",
+                ":petId"
+              ],
+              "variable": [
+                {
+                  "key": "petId",
+                  "value": "1",
+                  "description": "ID of pet to return"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 200
+            },
+            {
+              "key": "date",
+              "value": "Sat, 30 May 2026 09:15:18 GMT"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "access-control-allow-methods",
+              "value": "GET, POST, DELETE, PUT"
+            },
+            {
+              "key": "access-control-allow-headers",
+              "value": "Content-Type, api_key, Authorization"
+            },
+            {
+              "key": "server",
+              "value": "Jetty(9.2.9.v20150224)"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"category\": {\n        \"id\": 11,\n        \"name\": \"categorydog\"\n    },\n    \"name\": \"doggie\",\n    \"photoUrls\": [\n        \"photourl1\",\n        \"photourl2\"\n    ],\n    \"tags\": [\n        {\n            \"id\": 111,\n            \"name\": \"tag1\"\n        },\n        {\n            \"id\": 222,\n            \"name\": \"tag2\"\n        }\n    ],\n    \"status\": \"pending\"\n}"
+        },
+        {
+          "name": "pet not found",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pet/:petId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet",
+                ":petId"
+              ],
+              "variable": [
+                {
+                  "key": "petId",
+                  "value": "13312312",
+                  "description": "ID of pet to return"
+                }
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 404
+            },
+            {
+              "key": "date",
+              "value": "Sat, 30 May 2026 09:17:01 GMT"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "access-control-allow-methods",
+              "value": "GET, POST, DELETE, PUT"
+            },
+            {
+              "key": "access-control-allow-headers",
+              "value": "Content-Type, api_key, Authorization"
+            },
+            {
+              "key": "server",
+              "value": "Jetty(9.2.9.v20150224)"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"code\": 1,\n    \"type\": \"error\",\n    \"message\": \"Pet not found\"\n}"
+        },
+        {
+          "name": "Find pet by ID Copy",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pet/:petId",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pet",
+                ":petId"
+              ],
+              "variable": [
+                {
+                  "key": "petId",
+                  "value": "{{pet_id}}",
+                  "description": "ID of pet to return"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 200
+            },
+            {
+              "key": "date",
+              "value": "Sat, 30 May 2026 09:40:02 GMT"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "access-control-allow-methods",
+              "value": "GET, POST, DELETE, PUT"
+            },
+            {
+              "key": "access-control-allow-headers",
+              "value": "Content-Type, api_key, Authorization"
+            },
+            {
+              "key": "server",
+              "value": "Jetty(9.2.9.v20150224)"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 3,\n    \"category\": {\n        \"id\": 11,\n        \"name\": \"categorydog\"\n    },\n    \"name\": \"doggie\",\n    \"photoUrls\": [\n        \"photourl1\",\n        \"photourl2\"\n    ],\n    \"tags\": [\n        {\n            \"id\": 111,\n            \"name\": \"tag1\"\n        },\n        {\n            \"id\": 222,\n            \"name\": \"tag2\"\n        }\n    ],\n    \"status\": \"pending\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Deletes a pet Copy",
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "scope",
+              "value": "read:pets write:pets",
+              "type": "string"
+            },
+            {
+              "key": "authUrl",
+              "value": "https://petstore.swagger.io/oauth/authorize",
+              "type": "string"
+            },
+            {
+              "key": "grant_type",
+              "value": "implicit",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "api_key",
+            "value": "string"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/pet/:petId",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pet",
+            ":petId"
+          ],
+          "variable": [
+            {
+              "key": "petId",
+              "value": "{{pet_id}}",
+              "description": "Pet id to delete"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Invalid ID supplied",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "api_key",
+                "value": "string"
+              },
+              {
+                "description": "Added as a part of security scheme: oauth2",
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pet/:petId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet",
+                ":petId"
+              ],
+              "variable": [
+                {
+                  "key": "petId",
+                  "value": "495",
+                  "description": "Pet id to delete"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "text",
+          "header": [],
+          "cookie": [],
+          "body": ""
+        },
+        {
+          "name": "Pet not found",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "api_key",
+                "value": "string"
+              },
+              {
+                "description": "Added as a part of security scheme: oauth2",
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pet/:petId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet",
+                ":petId"
+              ],
+              "variable": [
+                {
+                  "key": "petId",
+                  "value": "495",
+                  "description": "Pet id to delete"
+                }
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "text",
+          "header": [],
+          "cookie": [],
+          "body": ""
+        },
+        {
+          "name": "200OK",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "api_key",
+                "value": "string"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pet/:petId",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pet",
+                ":petId"
+              ],
+              "variable": [
+                {
+                  "key": "petId",
+                  "value": "{{pet_id}}",
+                  "description": "Pet id to delete"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 200
+            },
+            {
+              "key": "date",
+              "value": "Sat, 30 May 2026 09:40:25 GMT"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "access-control-allow-methods",
+              "value": "GET, POST, DELETE, PUT"
+            },
+            {
+              "key": "access-control-allow-headers",
+              "value": "Content-Type, api_key, Authorization"
+            },
+            {
+              "key": "server",
+              "value": "Jetty(9.2.9.v20150224)"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"code\": 200,\n    \"type\": \"unknown\",\n    \"message\": \"3\"\n}"
+        }
+      ]
+    }
+  ]
+}
