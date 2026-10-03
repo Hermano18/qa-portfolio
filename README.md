@@ -16,7 +16,10 @@
 - Swagger
 - TestRail / Qase
 - Manual Testing
-
+- Playwright
+- TypeScript
+- Page Object Model (POM)
+- GitHub Actions CI
 ## 📋 Test Documentation
 
 В портфолио представлены:
@@ -73,6 +76,20 @@
 - Boundary Value Analysis
 - Decision Tables
 - Positive / Negative Testing
+
+- ## 🤖 UI Test Automation
+
+Автоматизировал UI-тестирование SauceDemo с использованием Playwright и TypeScript.
+
+- 15 автоматизированных UI-тестов
+- Page Object Model (POM)
+- Проверки авторизации, каталога, корзины и Checkout
+- HTML Test Report
+- GitHub Actions CI
+- Автоматический запуск тестов при каждом push
+- Все 15 тестов успешно проходят в CI ✅
+
+🔗 [SauceDemo Playwright Automation](https://github.com/Hermano18/qa-playwright)
 
 ## 📱 Mobile Testing
 
